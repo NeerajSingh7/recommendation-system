@@ -19,7 +19,10 @@ const Navbar = (props) => {
                             value={searchVal}
                             placeholder='search movies...'
                             sx={{ bgcolor: 'white', mr: '20px' }}
-                            onChange={(e) => setSearchVal(e.target.value)}
+                            onChange={(e) => {
+                                props.onSearch(e.target.value);
+                                setSearchVal(e.target.value);
+                            }}
 
                             InputProps={{
                                 startAdornment: (
@@ -30,6 +33,7 @@ const Navbar = (props) => {
                                     </InputAdornment>
                                 )
                             }}
+
                         />
                     </Stack>
                 </Toolbar>

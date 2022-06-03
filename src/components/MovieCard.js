@@ -1,5 +1,6 @@
 import React from 'react'
 import { Grid, Card, CardMedia, CardContent, Stack, Typography, Rating } from '@mui/material'
+import { Link } from 'react-router-dom';
 
 const MovieCard = (props) => {
     const movieRating = +((props.movieObj.vote_average / 10) * 5).toFixed(1);
@@ -7,6 +8,7 @@ const MovieCard = (props) => {
     return (
         <>
             <Grid item xs={12} sm={6} md={4} lg={3}>
+
                 <Card>
                     <CardMedia
                         component='img'
@@ -17,7 +19,7 @@ const MovieCard = (props) => {
 
                     <CardContent>
                         <Stack direction='row' alignItems='center' justifyContent='space-between'>
-                            <Typography variant='body2'>{props.movieObj.title}</Typography>
+                            <Link to={`/movie/${props.movieObj.id}`}><Typography variant='body2'>{props.movieObj.title}</Typography></Link>
                             <Rating sx={{ fontSize: '15px' }} value={movieRating} precision={0.1} readOnly size='small' />
                         </Stack>
                         <Typography variant='body2'></Typography>
